@@ -15,10 +15,10 @@
 
     <slot name="actions">
       <div class="v-step__buttons">
-        <button @click.prevent="skip" v-if="!isLast && isButtonEnabled('buttonSkip')" class="v-step__button v-step__button-skip">{{ labels.buttonSkip }}</button>
-        <button @click.prevent="previousStep" v-if="!isFirst && isButtonEnabled('buttonPrevious')" class="v-step__button v-step__button-previous">{{ labels.buttonPrevious }}</button>
-        <button @click.prevent="nextStep" v-if="!isLast && isButtonEnabled('buttonNext')" class="v-step__button v-step__button-next">{{ labels.buttonNext }}</button>
-        <button @click.prevent="finish" v-if="isLast && isButtonEnabled('buttonStop')" class="v-step__button v-step__button-stop">{{ labels.buttonStop }}</button>
+        <el-button @click.prevent="skip" v-if="!isLast && isButtonEnabled('buttonSkip')" class="v-step__button v-step__button-skip">{{ labels.buttonSkip }}</el-button>
+        <el-button @click.prevent="previousStep" v-if="!isFirst && isButtonEnabled('buttonPrevious')" class="v-step__button v-step__button-previous">{{ labels.buttonPrevious }}</el-button>
+        <el-button @click.prevent="nextStep" v-if="!isLast && isButtonEnabled('buttonNext')" class="v-step__button v-step__button-next">{{ labels.buttonNext }}</el-button>
+        <el-button @click.prevent="finish" v-if="isLast && isButtonEnabled('buttonStop')" class="v-step__button v-step__button-stop">{{ labels.buttonStop }}</el-button>
       </div>
     </slot>
 
@@ -27,10 +27,14 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import Popper from 'popper.js'
 import jump from 'jump.js'
 import sum from 'hash-sum'
+import Button from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import { DEFAULT_STEP_OPTIONS, HIGHLIGHT } from '../shared/constants'
+Vue.use(Button)
 
 export default {
   name: 'v-step',
@@ -194,8 +198,9 @@ export default {
 
 <style lang="scss" scoped>
   .v-step {
-    background: #50596c; /* #ffc107, #35495e */
-    color: white;
+    font-family: Asap, "Segoe UI";
+    background: #f5f7fa; /* #ffc107, #35495e */
+    color: #606266;
     max-width: 320px;
     border-radius: 3px;
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
@@ -213,7 +218,7 @@ export default {
   }
 
   .v-step .v-step__arrow {
-    border-color: #50596c; /* #ffc107, #35495e */
+    border-color: #e4e7ed; /* #ffc107, #35495e */
 
     &--dark {
       border-color: #454d5d;
@@ -285,7 +290,7 @@ export default {
   .v-step__header {
     margin: -1rem -1rem 0.5rem;
     padding: 0.5rem;
-    background-color: #454d5d;
+    background-color: #e4e7ed;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
   }
@@ -295,11 +300,6 @@ export default {
   }
 
   .v-step__button {
-    background: transparent;
-    border: .05rem solid white;
-    border-radius: .1rem;
-    color: white;
-    cursor: pointer;
     display: inline-block;
     font-size: .8rem;
     height: 1.8rem;
