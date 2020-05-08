@@ -102,6 +102,18 @@ export default {
     }
   },
   methods: {
+    getTargetElement (element) {
+      if (this.isElement(element)) {
+        return element
+      } else {
+        return document.querySelector(element)
+      }
+    },
+    isElement (o) {
+      return (
+        typeof HTMLElement === 'object' ? o instanceof HTMLElement : o && typeof o === 'object' && o !== null && o.nodeType === 1 && typeof o.nodeName === 'string'
+      )
+    },
     createStep () {
       if (this.debug) {
         console.log('[Vue Tour] The target element ' + this.step.target + ' of .v-step[id="' + this.hash + '"] is:', this.targetElement)
