@@ -11,7 +11,7 @@ const steps = [
     content: `Discover <strong>Vue Tour</strong>!`
   },
   {
-    target: '#v-step-1',
+    target: document.querySelector('#v-step-1'),
     content: 'An awesome plugin made with Vue.js!'
   }
 ]

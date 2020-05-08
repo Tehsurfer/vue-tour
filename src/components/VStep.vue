@@ -88,7 +88,7 @@ export default {
   data () {
     return {
       hash: sum(this.step.target),
-      targetElement: document.querySelector(this.step.target)
+      targetElement: this.getTargetElement(this.step.target)
     }
   },
   computed: {
