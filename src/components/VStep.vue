@@ -211,8 +211,8 @@ export default {
 <style lang="scss" scoped>
   .v-step {
     font-family: Asap, "Segoe UI";
-    background: #f5f7fa; /* #ffc107, #35495e */
-    color: #606266;
+    background: #8300bf; /* #ffc107, #35495e */
+    color: #ffffff;
     max-width: 320px;
     border-radius: 3px;
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
@@ -230,7 +230,7 @@ export default {
   }
 
   .v-step .v-step__arrow {
-    border-color: #e4e7ed; /* #ffc107, #35495e */
+    border-color: #8300bf9d; /* #ffc107, #35495e */
 
     &--dark {
       border-color: #454d5d;
@@ -324,6 +324,7 @@ export default {
     transition: all .2s ease;
     vertical-align: middle;
     white-space: nowrap;
+    color: #8300bf;
 
     &:hover {
       background-color: rgba(white, 0.95);
